@@ -39,7 +39,7 @@ os.makedirs(os.path.dirname(FILE_DATA), exist_ok=True)
 # ---------------------------------------------------------------------
 PROFIL = {
     "nama": "Satrya Iqbal H",
-    "julukan": ["Mahasiswa Teknologi Rekayasa Otomasai", "Algoritma Pemrograman", "Pencerita Kenangan"],  # list
+    "julukan": ["Mahasiswa Teknologi Rekayasa Otomasi", "Algoritma Pemograman", "Pencerita Kenangan"],  # list
     "tentang": "Halo! Saya mahasiswa yang sedang belajar pemrograman Python. "
                "Saya membuat website ini untuk menyimpan perjalanan dan kenangan saya.",
     "email": "satryaiqbal22@gmail.com",
