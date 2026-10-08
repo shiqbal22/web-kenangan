@@ -10,14 +10,14 @@ from datetime import datetime    # untuk membaca jam & tanggal
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.utils import secure_filename   # membersihkan nama file upload
 
-app = Flask(__name__)            # membuat aplikasi web
-app.secret_key = os.environ.get("SECRET_KEY", "lokal saja")   # dipakai untuk session login
+app = Flask(__name__)           
+app.secret_key = os.environ.get("SECRET_KEY", "lokal saja")   
 
 # ---------------------------------------------------------------------
 # 1) VARIABEL & TIPE DATA  (syarat dosen)
 # ---------------------------------------------------------------------
-NAMA_ADMIN = os.environ.get("NAMA_user", "admin")             # str     (teks)
-PASSWORD_ADMIN = os.environ.get("PASSWORD_user", "pasword lokal")        # str     -> GANTI sebelum dikumpulkan!
+NAMA_ADMIN = os.environ.get("NAMA_user", "admin")            
+PASSWORD_ADMIN = os.environ.get("PASSWORD_user", "pasword lokal")        
 MAKS_UKURAN_MB = 8              # int     (bilangan bulat)
 VERSI_WEB = 1.0                 # float   (bilangan desimal)
 MODE_DEBUG = True               # bool    (True / False)
