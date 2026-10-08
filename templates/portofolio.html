@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block judul %}Portofolio - {{ profil.nama }}{% endblock %}
+{% block isi %}
+<section class="blok">
+  <h1 class="judul-halaman">Portofolio</h1>
+  <p class="lead">{{ profil.tentang }}</p>
+  <p class="meta">{{ profil.lokasi }}</p>
+</section>
+
+<section class="blok">
+  <h2>Keahlian</h2>
+  <div class="skill-list">
+    {% for s in skill %}
+      <div class="skill">
+        <div class="skill-atas"><span>{{ s.nama }}</span><span>{{ s.level }}%</span></div>
+        <div class="bar"><div class="bar-isi" style="width: {{ s.level }}%"></div></div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="blok">
+  <h2>Pendidikan</h2>
+  <ol class="garis-waktu">
+    {% for p in pendidikan %}
+      <li><span class="tahun">{{ p.tahun }}</span><h3>{{ p.judul }}</h3><p>{{ p.ket }}</p></li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="blok">
+  <h2>Proyek</h2>
+  <div class="grid">
+    {% for p in proyek %}
+      <article class="kartu kartu-teks"><h3>{{ p.judul }}</h3><p>{{ p.ket }}</p></article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="blok">
+  <h2>Kontak</h2>
+  <p>Email: {{ profil.email }}<br>Instagram: {{ profil.instagram }}</p>
+</section>
+{% endblock %}

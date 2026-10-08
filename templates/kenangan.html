@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block judul %}Kenangan - {{ profil.nama }}{% endblock %}
+{% block isi %}
+<section class="blok">
+  <h1 class="judul-halaman">Kenangan</h1>
+  <div class="filter">
+    <a class="chip {% if pilihan == 'Semua' %}aktif{% endif %}" href="{{ url_for('kenangan') }}">Semua</a>
+    {% for k in kategori_list %}
+      <a class="chip {% if pilihan == k %}aktif{% endif %}" href="{{ url_for('kenangan', kategori=k) }}">{{ k }}</a>
+    {% endfor %}
+  </div>
+
+  {% if session.get('login') %}
+    <a class="tombol" href="{{ url_for('tambah_kenangan') }}">Tambah kenangan</a>
+  {% endif %}
+</section>
+
+<section class="blok">
+  {% if daftar %}
+    <div class="grid">
+      {% for item in daftar %}
+        <article class="kartu">
+          {% if item.foto %}
+            <div class="foto-grid foto-{{ [item.foto|length, 3] | min }}">
+              {% for f in item.foto %}
+                <img class="foto-klik" src="{{ url_for('static', filename='uploads/' + f) }}" alt="{{ item.judul }}" loading="lazy">
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="kartu-isi">
+            <span class="chip">{{ item.kategori }}</span>
+            <h3>{{ item.judul }}</h3>
+            <p class="meta">{{ item.tanggal }}</p>
+            <p>{{ item.keterangan }}</p>
+            {% if session.get('login') %}
+              <form method="post" action="{{ url_for('hapus_kenangan', id_kenangan=item.id) }}"
+                    onsubmit="return confirm('Hapus kenangan ini?')">
+                <button class="tombol-hapus" type="submit">Hapus</button>
+              </form>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="kosong">Belum ada kenangan di kategori ini.</p>
+  {% endif %}
+</section>
+
+<div id="lightbox" class="lightbox" hidden><img alt=""></div>
+{% endblock %}

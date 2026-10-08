@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block judul %}Masuk{% endblock %}
+{% block isi %}
+<section class="blok sempit">
+  <h1 class="judul-halaman">Masuk</h1>
+  <p class="lead">Login diperlukan untuk menambah atau menghapus kenangan.</p>
+  <form class="form" method="post">
+    <label>Username
+      <input type="text" name="username" required autocomplete="username">
+    </label>
+    <label>Password
+      <input type="password" name="password" required autocomplete="current-password">
+    </label>
+    <button class="tombol" type="submit">Masuk</button>
+  </form>
+</section>
+{% endblock %}

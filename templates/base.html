@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block judul %}{{ profil.nama }}{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Menu titik tiga di pojok kiri atas -->
+  <header class="topbar">
+    <div class="menu-wrap">
+      <button id="menuBtn" class="menu-btn" aria-label="Buka menu" aria-expanded="false">&#8942;</button>
+      <nav id="menuPanel" class="menu-panel" hidden>
+        <a href="{{ url_for('beranda') }}">Beranda</a>
+        <a href="{{ url_for('portofolio') }}">Portofolio</a>
+        <a href="{{ url_for('kenangan') }}">Kenangan</a>
+        {% if session.get('login') %}
+          <a href="{{ url_for('tambah_kenangan') }}">Tambah kenangan</a>
+          <a href="{{ url_for('logout') }}">Keluar</a>
+        {% else %}
+          <a href="{{ url_for('login') }}">Masuk</a>
+        {% endif %}
+      </nav>
+    </div>
+    <a class="brand" href="{{ url_for('beranda') }}">{{ profil.nama }}</a>
+  </header>
+
+  <!-- Pesan pemberitahuan (flash) -->
+  {% with pesan = get_flashed_messages() %}
+    {% if pesan %}
+      <div class="flash-area">
+        {% for p in pesan %}<div class="flash">{{ p }}</div>{% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <main>{% block isi %}{% endblock %}</main>
+
+  <footer class="footer">&copy; {{ profil.nama }} &middot; versi {{ versi }}</footer>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

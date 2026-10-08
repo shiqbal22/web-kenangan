@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block judul %}Tambah kenangan{% endblock %}
+{% block isi %}
+<section class="blok sempit">
+  <h1 class="judul-halaman">Tambah kenangan</h1>
+  <form class="form" method="post" enctype="multipart/form-data">
+    <label>Judul
+      <input type="text" name="judul" required maxlength="80" placeholder="Contoh: Study tour kelas 12">
+    </label>
+    <label>Kategori
+      <select name="kategori">
+        {% for k in kategori_list %}<option value="{{ k }}">{{ k }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Tanggal
+      <input type="date" name="tanggal">
+    </label>
+    <label>Keterangan
+      <textarea name="keterangan" rows="5" placeholder="Ceritakan kenangan ini..."></textarea>
+    </label>
+    <label>Foto (boleh lebih dari satu)
+      <input id="inputFoto" type="file" name="foto" accept="image/*" multiple>
+    </label>
+    <div id="pratinjau" class="pratinjau"></div>
+    <button class="tombol" type="submit">Simpan kenangan</button>
+  </form>
+</section>
+{% endblock %}

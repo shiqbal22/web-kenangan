@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block judul %}Beranda - {{ profil.nama }}{% endblock %}
+{% block isi %}
+<section class="hero">
+  <p class="sapaan">{{ ucapan }}, selamat datang di rumah kenangan saya.</p>
+  <h1 class="judul-besar">{{ profil.nama }}</h1>
+  <p class="ketik-baris">
+    <span id="ketik" data-teks='{{ profil.julukan | tojson }}'>{{ profil.julukan[0] }}</span><span class="kursor"></span>
+  </p>
+  <p class="jam" id="jam" aria-live="off"></p>
+  <div class="aksi">
+    <a class="tombol" href="{{ url_for('portofolio') }}">Lihat portofolio</a>
+    <a class="tombol tombol-garis" href="{{ url_for('kenangan') }}">Buka kenangan</a>
+  </div>
+</section>
+
+<section class="statistik">
+  <div class="stat"><strong>{{ stat.jumlah }}</strong><span>kenangan tersimpan</span></div>
+  <div class="stat"><strong>{{ stat.foto }}</strong><span>foto</span></div>
+  <div class="stat"><strong>{{ stat.rata }}</strong><span>rata-rata foto per kenangan</span></div>
+</section>
+
+<section class="blok">
+  <h2>Kenangan pilihan hari ini</h2>
+  {% if acak %}
+    <article class="kartu kartu-acak">
+      {% if acak.foto %}
+        <img src="{{ url_for('static', filename='uploads/' + acak.foto[0]) }}" alt="{{ acak.judul }}">
+      {% endif %}
+      <div class="kartu-isi">
+        <span class="chip">{{ acak.kategori }}</span>
+        <h3>{{ acak.judul }}</h3>
+        <p>{{ acak.keterangan }}</p>
+        <button class="tombol tombol-garis" onclick="location.reload()">Tampilkan yang lain</button>
+      </div>
+    </article>
+  {% else %}
+    <p class="kosong">Belum ada kenangan. Masuk, lalu tambahkan kenangan pertamamu dari menu titik tiga.</p>
+  {% endif %}
+</section>
+{% endblock %}
