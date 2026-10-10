@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "lokal saja")   
 
 # ---------------------------------------------------------------------
-# 1) VARIABEL & TIPE DATA  (syarat dosen)
+# 1) VARIABEL & TIPE DATA  
 # ---------------------------------------------------------------------
 NAMA_ADMIN = os.environ.get("NAMA_user", "admin")            
 PASSWORD_ADMIN = os.environ.get("PASSWORD_user", "pasword lokal")        
@@ -40,8 +40,8 @@ os.makedirs(os.path.dirname(FILE_DATA), exist_ok=True)
 PROFIL = {
     "nama": "Satrya Iqbal H",
     "julukan": ["Mahasiswa Teknologi Rekayasa Otomasi", "Algoritma Pemograman", "Pencerita Kenangan"],  # list
-    "tentang": "Halo! Saya mahasiswa yang sedang belajar pemrograman Python. "
-               "Saya membuat website ini untuk menyimpan perjalanan dan kenangan saya.",
+    "tentang": "Haii, aku iqbal mahasiswa yang sedang belajar banyak hal baru termasuk projek pertama ini. "
+               "Kenangan adalah sebuah memori untuk mengenang segala hal indah yang pernah terjadi.",
     "email": "satryaiqbal22@gmail.com",
     "instagram": "@shi_qbal",
     "lokasi": "solo, Indonesia",
@@ -49,9 +49,9 @@ PROFIL = {
 
 SKILL = [                                   # list berisi dictionary
     {"nama": "Python", "level": 60},
-    {"nama": "HTML & CSS", "level": 55},
+    {"nama": "Physics and math", "level": 60},
     {"nama": "Microsoft Office", "level": 80},
-    {"nama": "Komunikasi", "level": 85},
+    {"nama": "Komunikasi, public speaking", "level": 85},
 ]
 
 PENDIDIKAN = [
@@ -61,7 +61,7 @@ PENDIDIKAN = [
 
 PROYEK = [
     {"judul": "Website Portofolio & Kenangan", "ket": "Kenangan yang indah harus diabadikan bukan dihapus."},
-    {"judul": "Proyek Kedua", "ket": "Tulis deskripsi singkat proyekmu di sini."},
+    {"judul": "Proyek Kedua", "ket": "membuat sebuah model Iot sederhana menggunakan ESP32."},
 ]
 
 # ---------------------------------------------------------------------
