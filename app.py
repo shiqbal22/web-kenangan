@@ -49,19 +49,19 @@ PROFIL = {
 
 SKILL = [                                   # list berisi dictionary
     {"nama": "Python", "level": 60},
-    {"nama": "Physics and math", "level": 60},
+    {"nama": "Physics and math", "level": 80},
     {"nama": "Microsoft Office", "level": 80},
     {"nama": "Komunikasi, public speaking", "level": 85},
 ]
 
 PENDIDIKAN = [
-    {"tahun": "2022 - 2025", "judul": "SMA Negreri 2 Sukoharjo", "ket": "IPA 1B."},
-    {"tahun": "2025 - sekarang", "judul": "Diponegoro University", "ket": "D4 Teknologi Rekaya Otomasi."},
+    {"tahun": "2023 - 2026", "judul": "SMA Negreri 2 Sukoharjo", "ket": "IPA 1B."},
+    {"tahun": "2026 - sekarang", "judul": "Diponegoro University", "ket": "D4 Teknologi Rekaya Otomasi."},
 ]
 
 PROYEK = [
     {"judul": "Website Portofolio & Kenangan", "ket": "Kenangan yang indah harus diabadikan bukan dihapus."},
-    {"judul": "Proyek Kedua", "ket": "membuat sebuah model Iot sederhana menggunakan ESP32."},
+    {"judul": "Projek IOT", "ket": "membuat sebuah model Iot sederhana menggunakan ESP32."},
 ]
 
 # ---------------------------------------------------------------------
